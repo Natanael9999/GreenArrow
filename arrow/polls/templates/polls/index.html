@@ -1,0 +1,9 @@
+{% if latest_heroes_list %}
+    <ul>
+        {% for heroes in latest_heroes_list %}
+            <li><a href="{% url 'polls:detail' heroes.id%}">{{heroes.name}}</a></li>
+        {% endfor %}
+    </ul>
+{%else%}
+    <p>No polls are available</p>
+{%endif%}

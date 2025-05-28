@@ -1,0 +1,14 @@
+<h1>{{heroes.name}}</h1>
+<ul>
+{%for villain in heroes.villain_set.all%}
+    <li>{{villain.name}}</li>
+{%endfor%}
+</ul>
+
+<form action="{% url 'polls:vote' heroes.id %}" method="post">
+{%csrf_token%}
+<fieldset>
+    <legend><h1>{{heroes.name}}</h1></legend>
+    {%if error_message%}<p><strong>{{error_message}}</strong></p>{%endif%}
+    {%for villain in heroes.villain_set.all%}
+        <input type="text">
